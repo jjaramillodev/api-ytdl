@@ -23,7 +23,7 @@ app.use(express.json())
 app.use(cors(corsOptions))
 
 app.get('/', (_req: Request, res: Response) => {
-  res.send('Ytdl - MayerCodes')
+  res.send('Ytdl - jjaramillodev')
 })
 
 const port = process.env.PORT ?? 80

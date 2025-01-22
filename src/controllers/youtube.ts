@@ -26,18 +26,16 @@ class YoutubeController {
   }
 
   download = async (req: Request, res: Response) => {
-    // obtener la URL del video de YouTube de la consulta
-    const videoUrl = req.body.url as string
-    // obtener el formato del video de YouTube de la consulta
-    const itag = req.body.itag as number
+    // obtener la URL y el formato del video de YouTube de la consulta
+    const { url, itag } = req.body
     // si no se proporciona una URL del video de YouTube, devolver un error
-    if (!videoUrl || !itag) {
+    if (!url || !itag) {
       res.status(400).send('Por favor, proporciona una URL del video de YouTube y un formato de video.')
       return
     }
     // descargar el video de YouTube
     try {
-      const stream = await this.model.download(videoUrl, itag)
+      const stream = await this.model.download(url, itag)
       res.header('Content-Disposition', 'attachment; filename="video.mp4"',)
       stream.pipe(res)
     } catch (error) {

@@ -1,5 +1,5 @@
 {
-  "name": "api-myc-ytdl",
+  "name": "api-ytdl",
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/app.ts"
